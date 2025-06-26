@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PlayCircle } from 'lucide-react';
 import { FaPlay } from "react-icons/fa";
 
 const podcastVideos = [
@@ -33,7 +32,7 @@ export default function PodcastPlayer() {
   }, []);
 
   return (
-    <section className="bg-gradient-to-b from-[#faa988] to-[#ffe9dc] py-12 px-4 text-center">
+    <section className="bg-gradient-to-b from-[#faa988] to-[#ffe9dc] py-12 sm:py-24 px-4 text-center">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-white mb-2">Our Podcast Episodes</h2>
         <p className="text-white mb-6 text-sm max-w-xl mx-auto">

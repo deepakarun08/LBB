@@ -8,11 +8,13 @@ body {
 
 .header {
     background: #175199;
-    background-image: url("../images/header-bg.png"), linear-gradient(180deg, rgba(23, 81, 153, 1) 0%, rgba(134, 185, 249, 1) 50%);
-    background-blend-mode: saturation;
+    background-image: url("../images/header-bg.png"), linear-gradient(180deg,rgba(23, 81, 153, 1) 0%, rgba(92, 141, 203, 1) 100%);
+    background-blend-mode: luminosity;
     background-size: cover;
     background-position: right top;
 }
+
+.header-buttons{font-size: 18px; margin-top: 5px;}
 nav{
     background-color: #68a2e9;
 }

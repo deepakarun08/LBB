@@ -44,14 +44,14 @@ export default function OurServicesCarousel() {
   const scroll = (direction) => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: direction === 'left' ? -1000 : 1000,
+        left: direction === 'left' ? -266 : 266,
         behavior: 'smooth',
       });
     }
   };
 
   return (
-    <section className="bg-[#F0F7FF] py-24 px-4">
+    <section className="bg-[#F0F7FF] py-12 pb-24 sm:py-24 px-4">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Side */}
         <div>

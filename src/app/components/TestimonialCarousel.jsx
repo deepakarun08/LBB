@@ -33,9 +33,9 @@ export default function TestimonialCarousel() {
   }, []);
 
   return (
-    <section className="w-full bg-white py-12">
+    <section className="w-full bg-white py-12 sm:py-24 px-4">
       {/* Image Grid */}
-      <div className="flex flex-wrap justify-center gap-4 px-4 max-w-7xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-4 px-4 max-w-7xl mx-auto hidden sm:flex">
         {[
           '/images/p1.jpg',
           '/images/p2.jpg',
@@ -60,15 +60,24 @@ export default function TestimonialCarousel() {
           </div>
         ))}
       </div>
+       
+    
 
       {/* Testimonial Section */}
-      <div className="mt-12 text-center px-4 max-w-3xl mx-auto">
+      <div className="mt-0 sm:mt-12 text-center px-4 max-w-3xl mx-auto">
         <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
           Voices Beyond Boundaries
         </h2>
         <p className="text-sm text-gray-600 mb-6">
           Real stories from real people — sharing how Lives Beyond Boundaries helped them transform their lives for the better.
         </p>
+
+            <div className="max-w-4xl mx-auto aspect-video w-full rounded-lg overflow-hidden mb-8 mt-12">
+          <video key="" controls autoPlay className="w-full h-full object-cover">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         <blockquote className="text-gray-700 italic mb-4">
           {testimonials[currentIndex].quote}

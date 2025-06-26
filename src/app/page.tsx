@@ -33,7 +33,7 @@ const slides = [
 const options = [
   {
     title: 'Get Career Counselling',
-    icon: <Briefcase className="w-8 h-8 text-blue-600" />,
+    icon: <Briefcase className="w-8 h-8 text-[#628FC9]" />,
     gradient: 'bg-gradient-to-r from-blue-100 to-blue-200',
   },
   {
@@ -43,7 +43,7 @@ const options = [
   },
   {
     title: 'Get Relationship Counselling',
-    icon: <HeartHandshake className="w-8 h-8 text-sky-500" />,
+    icon: <HeartHandshake className="w-8 h-8 text-[#628FC9]" />,
     gradient: 'bg-gradient-to-r from-sky-100 to-sky-200',
   },
   {
@@ -81,19 +81,19 @@ export default function Home() {
       <header className='header md:h-[830] sm:h-auto'>
         <div className='max-w-7xl mx-auto px-4'>
           <div className='flex flex-row'>
-            <div className="basis-3/12 flex social items-center">
+            <div className="basis-3/12 social items-center hidden sm:flex">
               <div className="flex gap-4 text-white">
                 <FaYoutube className="w-6 h-6" />
                 <FaInstagram className="w-6 h-6" />
                 <FaFacebook className="w-6 h-6" />
               </div>
             </div>
-            <div className="basis-6/12 flex logo-container items-center justify-center py-8">
+            <div className="basis-12/12 sm:basis-6/12 flex logo-container items-center justify-center py-8">
               <div className='logo'>
                 <Image src="/images/logo.png" alt='LBB logo' width={230} height={98} layout="responsive" ></Image>
               </div>
             </div>
-            <div className="basis-3/12 callToAction flex items-end justify-center text-white flex-col">
+            <div className="basis-3/12 callToAction flex items-end justify-center text-white flex-col hidden sm:flex">
               <div className='flex items-center'><FaPhoneAlt size={20} /> <div className='text-2xl ml-3 font-bold'>Call Us!</div></div>
               <div className='font-normal text-2x'>9810019611</div>
             </div>
@@ -338,7 +338,7 @@ export default function Home() {
               className={`rounded-xl shadow-md p-5 cursor-pointer flex items-center space-x-4 transition-transform hover:scale-105 ${item.gradient}`}
             >
               <div className="flex-shrink-0">{item.icon}</div>
-              <div className="font-semibold text-gray-800">{item.title}</div>
+              <div className="font-semibold text-gray-800 header-buttons">{item.title}</div>
             </div>
           ))}
         </div>
@@ -347,9 +347,6 @@ export default function Home() {
 
       <ProcessSteps />
       <StatsBanner />
-
-
-
       {/* Section Name: Life Beyond Boundaries */}
 
       <LivesBeyondBoundaries />

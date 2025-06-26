@@ -10,7 +10,7 @@ export default function LivesBeyondBoundaries() {
   ];
 
   return (
-    <section className="LBB bg-white md:py-24 sm:py-12 px-4">
+    <section className="LBB bg-white py-12 sm:py-12 px-4">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
           LIVES BEYOND BOUNDARIES

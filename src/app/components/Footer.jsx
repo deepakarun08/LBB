@@ -72,7 +72,7 @@ export default function Footer() {
       </div>
 
       {/* Social Icons & Bottom Row */}
-      <div className="mt-8 border-t border-gray-200 pt-6">
+      <div className="mt-8 mb-4 border-t border-gray-200 pt-6">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Social Icons */}
           <div className="flex gap-4 text-xl text-gray-600">

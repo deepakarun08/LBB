@@ -35,7 +35,7 @@ export default function ProcessSteps() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:py-24 sm:py-24">
+    <section className="max-w-7xl mx-auto px-4 py-12 sm:py-24">
       <h2 className="text-3xl font-bold text-center mb-2">How the Process Works @ LIVES BEYOND BOUNDARIES</h2>
       <p className="text-center text-gray-600 max-w-3xl mx-auto mb-10">
         We help you live a life beyond boundaries by exploring the unique pathways within yourself so you may realize your true potential and purpose of life.
