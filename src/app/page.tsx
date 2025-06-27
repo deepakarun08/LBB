@@ -11,9 +11,11 @@ import StatsBanner from './components/StatsBanner';
 import OurServicesCarousel from './components/OurServicesCarousel';
 import PodcastPlayer from './components/PodcastPlayer';
 import TestimonialCarousel from './components/TestimonialCarousel';
+import FounderSection from './components/FounderSection';
 import ContactForm from "./components/ContactForm";
 import LivesBeyondBoundaries from "./components/LivesBeyondBoundaries";
 import Footer from './components/Footer';
+
 
 const slides = [
   {
@@ -350,6 +352,7 @@ export default function Home() {
       {/* Section Name: Life Beyond Boundaries */}
 
       <LivesBeyondBoundaries />
+       <FounderSection />
       {/* Section Name: Why Choose Us */}
       <>  <WhyChooseUs /></>
 

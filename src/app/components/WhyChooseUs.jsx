@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section className="sm:py-24 py-12 bg-[#fffbef]">
+    <section className="sm:py-24 py-12 bg-[#ffffff]">
       <div className="text-center max-w-3xl mx-auto mb-10">
         <h2 className="text-3xl font-bold text-gray-900">Why Choose Us</h2>
         <p className="text-gray-600 mt-2">

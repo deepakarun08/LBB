@@ -92,7 +92,7 @@ export default function TestimonialCarousel() {
             <button
               key={idx}
               className={`w-3 h-3 rounded-full transition-colors ${
-                currentIndex === idx ? 'bg-blue-600' : 'bg-gray-300'
+                currentIndex === idx ? 'bg-[#5886BF]' : 'bg-gray-300'
               }`}
               onClick={() => setCurrentIndex(idx)}
               aria-label={`Go to testimonial ${idx + 1}`}
