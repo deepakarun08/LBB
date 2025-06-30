@@ -16,6 +16,13 @@ import ContactForm from "./components/ContactForm";
 import LivesBeyondBoundaries from "./components/LivesBeyondBoundaries";
 import Footer from './components/Footer';
 
+type DropdownName =
+  | 'about'
+  | 'services'
+  | 'training'
+  | 'tools'
+  | 'assessments'
+  | 'associations';
 
 const slides = [
   {
@@ -59,14 +66,7 @@ const options = [
 
 export default function Home() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isAboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-  const [isServicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [isTrainingDropdownOpen, setTrainingDropdownOpen] = useState(false);
-  const [isToolsDropdownOpen, setToolsDropdownOpen] = useState(false);
-  const [isAssessmentsDropdownOpen, setAssessmentsDropdownOpen] = useState(false);
-  const [isAssociationsDropdownOpen, setAssociationsDropdownOpen] = useState(false);
-
-
+  const [openDropdown, setOpenDropdown] = useState<DropdownName | null>(null);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -77,6 +77,10 @@ export default function Home() {
   }, []);
 
   const slide = slides[current];
+  const toggleDropdown = (dropdownName: DropdownName) => {
+  setOpenDropdown(prev => (prev === dropdownName ? null : dropdownName));
+};
+
 
   return (
     <div>
@@ -111,14 +115,15 @@ export default function Home() {
 
                   <div className="relative navlinks">
                     <button
-                      onClick={() => setAboutDropdownOpen(!isAboutDropdownOpen)}
+                      // onClick={() => setAboutDropdownOpen(!isAboutDropdownOpen)}
+                      onClick={() => toggleDropdown('about')}
                       className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
                     >
                       About LBB
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
-                      {isAboutDropdownOpen && (
+                      {openDropdown === 'about' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                           <Link href="/about" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Us</Link>
                           <Link href="/ourTeam" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Our Team</Link>
@@ -130,14 +135,14 @@ export default function Home() {
 
 
                     <button
-                      onClick={() => setServicesDropdownOpen(!isServicesDropdownOpen)}
+                      onClick={() => toggleDropdown('services')}
                       className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
                     >
                       Our Services
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
-                      {isServicesDropdownOpen && (
+                      {openDropdown === 'services' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                           <Link href="/about" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Finger Print Analysis</Link>
                           <Link href="/ourTeam" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hypnotherapy</Link>
@@ -150,14 +155,14 @@ export default function Home() {
 
 
                     <button
-                      onClick={() => setTrainingDropdownOpen(!isTrainingDropdownOpen)}
+                      onClick={() => toggleDropdown('training')}
                       className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
                     >
                       Trainings
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
-                      {isTrainingDropdownOpen && (
+                      {openDropdown === 'training' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                           <Link href="/Dermatoglyphics" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dermatoglyphics Online Certification Training</Link>
                           <Link href="/AQ-Coach" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">AQ Coach Certification Training</Link>
@@ -168,14 +173,14 @@ export default function Home() {
 
 
                     <button
-                      onClick={() => setToolsDropdownOpen(!isToolsDropdownOpen)}
+                      onClick={() => toggleDropdown('tools')}
                       className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
                     >
                       Counselling & Tools
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
-                      {isToolsDropdownOpen && (
+                      {openDropdown === 'tools' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                           <Link href="/child-fingerprints" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Decode Your Child's Fingerprints</Link>
                           <Link href="/career-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Career Counselling</Link>
@@ -190,14 +195,14 @@ export default function Home() {
 
 
                     <button
-                      onClick={() => setAssociationsDropdownOpen(!isAssociationsDropdownOpen)}
+                      onClick={() => toggleDropdown('associations')}
                       className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
                     >
                       Associations
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
-                      {isAssociationsDropdownOpen && (
+                      {openDropdown === 'associations' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                           <Link href="/lbb-corporates" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LBB For Corporates</Link>
                           <Link href="/career-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LBB For Schools</Link>
@@ -209,7 +214,7 @@ export default function Home() {
 
 
                     <button
-                      onClick={() => setAssessmentsDropdownOpen(!isAssessmentsDropdownOpen)}
+                      onClick={() => toggleDropdown('assessments')}
                       className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
                     >
                       Assessments
@@ -217,7 +222,7 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
 
-                      {isAssessmentsDropdownOpen && (
+                      {openDropdown === 'assessments' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                           <Link href="/lbb-corporates" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Multiple Intelligence</Link>
                           <Link href="/career-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inborn Communication Style</Link>
@@ -256,7 +261,7 @@ export default function Home() {
 
               <div>
                 <button
-                  onClick={() => setAboutDropdownOpen(!isAboutDropdownOpen)}
+                  onClick={() => toggleDropdown('about')}
                   className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 flex justify-between items-center"
                 >
                   About LBB
@@ -265,7 +270,7 @@ export default function Home() {
                   </svg>
                 </button>
 
-                {isAboutDropdownOpen && (
+                {openDropdown === 'about' && (
                   <div className="pl-6">
                     <Link href="/about" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">About Us</Link>
                     <Link href="/ourTeam" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Our Team</Link>
@@ -274,7 +279,7 @@ export default function Home() {
                 )}
 
                 <button
-                  onClick={() => setServicesDropdownOpen(!isServicesDropdownOpen)}
+                  onClick={() => toggleDropdown('services')}
                   className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 flex justify-between items-center"
                 >
                   Our Services
@@ -283,7 +288,7 @@ export default function Home() {
                   </svg>
                 </button>
 
-                {isServicesDropdownOpen && (
+                {openDropdown === 'services' && (
                   <div className="pl-6">
                     <Link href="/about" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Finger Print Analysis</Link>
                     <Link href="/ourTeam" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Hypnotherapy</Link>
