@@ -44,21 +44,25 @@ const options = [
     title: 'Get Career Counselling',
     icon: <Briefcase className="w-8 h-8 text-[#628FC9]" />,
     gradient: 'bg-gradient-to-r from-blue-100 to-blue-200',
+    page: '/career-counselling',
   },
   {
     title: 'Get Your Child’s Counselling',
     icon: <Smile className="w-8 h-8 text-orange-400" />,
     gradient: 'bg-gradient-to-r from-orange-100 to-orange-200',
+    page: '/special-need-child-counselling',
   },
   {
     title: 'Get Relationship Counselling',
     icon: <HeartHandshake className="w-8 h-8 text-[#628FC9]" />,
     gradient: 'bg-gradient-to-r from-sky-100 to-sky-200',
+    page: '/adult-counselling',
   },
   {
     title: 'Get Family Counselling',
     icon: <Users className="w-8 h-8 text-orange-400" />,
     gradient: 'bg-gradient-to-r from-orange-100 to-orange-200',
+    page: '/adult-counselling',
   },
 ];
 
@@ -427,13 +431,13 @@ export default function Home() {
         </section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto px-4 py-8">
           {options.map((item, index) => (
-            <div
-              key={index}
+            <Link key={index} href={item.page}><div
+              key={index + item.gradient}
               className={`rounded-xl shadow-md p-5 cursor-pointer flex items-center space-x-4 transition-transform hover:scale-105 ${item.gradient}`}
             >
               <div className="flex-shrink-0">{item.icon}</div>
               <div className="font-semibold text-gray-800 header-buttons">{item.title}</div>
-            </div>
+            </div></Link>
           ))}
         </div>
       </header>
