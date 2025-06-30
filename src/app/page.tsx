@@ -78,8 +78,8 @@ export default function Home() {
 
   const slide = slides[current];
   const toggleDropdown = (dropdownName: DropdownName) => {
-  setOpenDropdown(prev => (prev === dropdownName ? null : dropdownName));
-};
+    setOpenDropdown(prev => (prev === dropdownName ? null : dropdownName));
+  };
 
 
   return (
@@ -89,15 +89,24 @@ export default function Home() {
           <div className='flex flex-row'>
             <div className="basis-3/12 social items-center hidden sm:flex">
               <div className="flex gap-4 text-white">
-                <FaYoutube className="w-6 h-6" />
-                <FaInstagram className="w-6 h-6" />
-                <FaFacebook className="w-6 h-6" />
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  rel="noopener noreferrer"><FaYoutube className="w-6 h-6" /></a>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"><FaInstagram className="w-6 h-6" /></a>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"><FaFacebook className="w-6 h-6" /></a>
               </div>
             </div>
-            <div className="basis-12/12 sm:basis-6/12 flex logo-container items-center justify-center py-8">
-              <div className='logo'>
+            <div className="basis-12/12 sm:basis-6/12 flex logo-container items-center justify-center py-8 cursor-pointer">
+              <Link href="/"><div className='logo'>
                 <Image src="/images/logo.png" alt='LBB logo' width={230} height={98} layout="responsive" ></Image>
-              </div>
+              </div></Link>
             </div>
             <div className="basis-3/12 callToAction flex items-end justify-center text-white flex-col hidden sm:flex">
               <div className='flex items-center'><FaPhoneAlt size={20} /> <div className='text-2xl ml-3 font-bold'>Call Us!</div></div>
@@ -115,9 +124,8 @@ export default function Home() {
 
                   <div className="relative navlinks">
                     <button
-                      // onClick={() => setAboutDropdownOpen(!isAboutDropdownOpen)}
                       onClick={() => toggleDropdown('about')}
-                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
+                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer"
                     >
                       About LBB
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -126,8 +134,8 @@ export default function Home() {
                       {openDropdown === 'about' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                           <Link href="/about" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Us</Link>
-                          <Link href="/ourTeam" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Our Team</Link>
-                          <Link href="/eventsAndUpdates" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Latest Events & Updates</Link>
+                          <Link href="/team" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Our Team</Link>
+                          <Link href="/media" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Latest Events & Updates</Link>
                         </div>
                       )}
                     </button>
@@ -136,7 +144,7 @@ export default function Home() {
 
                     <button
                       onClick={() => toggleDropdown('services')}
-                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
+                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer"
                     >
                       Our Services
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -144,10 +152,10 @@ export default function Home() {
                       </svg>
                       {openDropdown === 'services' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                          <Link href="/about" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Finger Print Analysis</Link>
-                          <Link href="/ourTeam" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hypnotherapy</Link>
-                          <Link href="/eventsAndUpdates" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cognitive Behavioral Therapy</Link>
-                          <Link href="/eventsAndUpdates" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">NLP - Neuro Linguistic Progrmming </Link>
+                          <Link href="/fingerprint-analysis" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Finger Print Analysis</Link>
+                          <Link href="/hypnotherapy" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hypnotherapy</Link>
+                          <Link href="/cognitive-behavior-therapy" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cognitive Behavioral Therapy</Link>
+                          <Link href="/neuro-linguistic-programming" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">NLP - Neuro Linguistic Progrmming </Link>
                         </div>
                       )}
                     </button>
@@ -156,7 +164,7 @@ export default function Home() {
 
                     <button
                       onClick={() => toggleDropdown('training')}
-                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
+                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer"
                     >
                       Trainings
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -164,8 +172,8 @@ export default function Home() {
                       </svg>
                       {openDropdown === 'training' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                          <Link href="/Dermatoglyphics" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dermatoglyphics Online Certification Training</Link>
-                          <Link href="/AQ-Coach" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">AQ Coach Certification Training</Link>
+                          <Link href="/dermatoglyphics-online-certification-training" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dermatoglyphics Online Certification Training</Link>
+                          <Link href="/adversity-quotient-coach-training" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">AQ Coach Certification Training</Link>
                         </div>
                       )}
                     </button>
@@ -174,7 +182,7 @@ export default function Home() {
 
                     <button
                       onClick={() => toggleDropdown('tools')}
-                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
+                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer"
                     >
                       Counselling & Tools
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -182,12 +190,12 @@ export default function Home() {
                       </svg>
                       {openDropdown === 'tools' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                          <Link href="/child-fingerprints" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Decode Your Child's Fingerprints</Link>
+                          <Link href="/child-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Decode Your Child's Fingerprints</Link>
                           <Link href="/career-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Career Counselling</Link>
                           <Link href="/adult-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Adult Counselling</Link>
-                          <Link href="/special-child-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Special Needs Child Counselling</Link>
-                          <Link href="/special-child-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Online Workshops for kids</Link>
-                          <Link href="/counselling-tools" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Counselling Tools & Techniques</Link>
+                          <Link href="/special-need-child-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Special Needs Child Counselling</Link>
+                          <Link href="/online-workshops-for-kids" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Online Workshops for kids</Link>
+                          <Link href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Counselling Tools & Techniques</Link>
                         </div>
                       )}
                     </button>
@@ -196,7 +204,7 @@ export default function Home() {
 
                     <button
                       onClick={() => toggleDropdown('associations')}
-                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
+                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer"
                     >
                       Associations
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -204,9 +212,9 @@ export default function Home() {
                       </svg>
                       {openDropdown === 'associations' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                          <Link href="/lbb-corporates" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LBB For Corporates</Link>
-                          <Link href="/career-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LBB For Schools</Link>
-                          <Link href="/adult-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LBB for Mental Health Professionals</Link>
+                          <Link href="/corporates" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LBB For Corporates</Link>
+                          <Link href="/schools" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LBB For Schools</Link>
+                          <Link href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">LBB for Mental Health Professionals</Link>
                         </div>
                       )}
                     </button>
@@ -215,7 +223,7 @@ export default function Home() {
 
                     <button
                       onClick={() => toggleDropdown('assessments')}
-                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]"
+                      className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer"
                     >
                       Assessments
                       <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -224,17 +232,17 @@ export default function Home() {
 
                       {openDropdown === 'assessments' && (
                         <div className="absolute text-left top-10 left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                          <Link href="/lbb-corporates" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Multiple Intelligence</Link>
-                          <Link href="/career-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inborn Communication Style</Link>
-                          <Link href="/adult-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">VARK Learning Styles</Link>
-                          <Link href="/adult-counselling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Holland Career Assessment</Link>
+                          <Link href="/quiz/multiple-intelligence" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Multiple Intelligence</Link>
+                          <Link href="/quiz/inborn-communication-style" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inborn Communication Style</Link>
+                          <Link href="/quiz/vark-learning-styles" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">VARK Learning Styles</Link>
+                          <Link href="/quiz/holland-career-assessment" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Holland Career Assessment</Link>
                         </div>
                       )}
                     </button>
 
-                    <Link href="/submit-fingerprints" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]">Submit Your Fingerprints</Link>
-                    <Link href="/blogs" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]">Blogs</Link>
-                    <Link href="/contact-us" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76]">Contact Us</Link>
+                    <Link href="/submit-your-fingerprints" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer">Submit Your Fingerprints</Link>
+                    <Link href="/blog" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer">Blogs</Link>
+                    <Link href="/contact-us" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-[#0b2b76] cursor-pointer">Contact Us</Link>
 
                   </div>
                 </div>
@@ -273,8 +281,8 @@ export default function Home() {
                 {openDropdown === 'about' && (
                   <div className="pl-6">
                     <Link href="/about" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">About Us</Link>
-                    <Link href="/ourTeam" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Our Team</Link>
-                    <Link href="/eventsAndUpdates" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Latest Events & Updates</Link>
+                    <Link href="/team" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Our Team</Link>
+                    <Link href="/media" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Latest Events & Updates</Link>
                   </div>
                 )}
 
@@ -290,16 +298,93 @@ export default function Home() {
 
                 {openDropdown === 'services' && (
                   <div className="pl-6">
-                    <Link href="/about" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Finger Print Analysis</Link>
-                    <Link href="/ourTeam" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Hypnotherapy</Link>
-                    <Link href="/eventsAndUpdates" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Cognitive Behavioral Therapy</Link>
-                    <Link href="/eventsAndUpdates" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">NLP - Neuro Linguistic Progrmming </Link>
+                    <Link href="/fingerprint-analysis" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Finger Print Analysis</Link>
+                    <Link href="/hypnotherapy" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Hypnotherapy</Link>
+                    <Link href="/cognitive-behavior-therapy" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Cognitive Behavioral Therapy</Link>
+                    <Link href="/neuro-linguistic-programming" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">NLP - Neuro Linguistic Progrmming </Link>
+                  </div>
+                )}
+
+                <button
+                  onClick={() => toggleDropdown('training')}
+                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 flex justify-between items-center"
+                >
+                  Trainings
+                  <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {openDropdown === 'training' && (
+                  <div className="pl-6">
+                    <Link href="/dermatoglyphics-online-certification-training" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Dermatoglyphics Online Certification Training</Link>
+                    <Link href="/adversity-quotient-coach-training" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">AQ Coach Certification Training</Link>
+                  </div>
+                )}
+
+                <button
+                  onClick={() => toggleDropdown('tools')}
+                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 flex justify-between items-center"
+                >
+                  Counselling & Tools
+                  <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {openDropdown === 'tools' && (
+                  <div className="pl-6">
+                    <Link href="/child-counselling" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Decode Your Child's Fingerprints</Link>
+                    <Link href="/career-counselling" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Career Counselling</Link>
+                    <Link href="/adult-counselling" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Adult Counselling</Link>
+                    <Link href="/special-need-child-counselling" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Special Needs Child Counselling</Link>
+                    <Link href="/online-workshops-for-kids" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Online Workshops for kids</Link>
+                    <Link href="/" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Counselling Tools & Techniques</Link>
+                  </div>
+                )}
+
+                <button
+                  onClick={() => toggleDropdown('associations')}
+                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 flex justify-between items-center"
+                >
+                  Associations
+                  <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {openDropdown === 'associations' && (
+                  <div className="pl-6">
+                    <Link href="/corporates" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">LBB For Corporates</Link>
+                    <Link href="/schools" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">LBB For Schools</Link>
+                    <Link href="/" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">LBB for Mental Health Professionals</Link>
+                  </div>
+                )}
+
+                <button
+                  onClick={() => toggleDropdown('assessments')}
+                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100 flex justify-between items-center"
+                >
+                  Assessments
+                  <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {openDropdown === 'assessments' && (
+                  <div className="pl-6">
+                    <Link href="/quiz/multiple-intelligence" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Multiple Intelligence</Link>
+                    <Link href="/quiz/inborn-communication-style" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Inborn Communication Style</Link>
+                    <Link href="/quiz/vark-learning-styles" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">VARK Learning Styles</Link>
+                    <Link href="/quiz/holland-career-assessment" className="block py-1 text-sm text-gray-700 hover:bg-gray-100">Holland Career Assessment</Link>
                   </div>
                 )}
 
               </div>
 
-              <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">About</Link>
+              <Link href="/submit-your-fingerprints" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">Submit Your Fingerprints</Link>
+              <Link href="/blog" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">Blogs</Link>
+              <Link href="/contact-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">Contact Us</Link>
             </div>
           )}
         </nav>
@@ -320,12 +405,14 @@ export default function Home() {
               <p className="text-white text-lg">{slide.subtitle}</p>
 
               <div className="flex flex-wrap gap-4">
+                <Link href="/contact-us">
                 <button className="bg-orange-400 hover:bg-orange-500 text-white px-5 py-2 rounded-lg shadow">
                   Book Appointment Now
-                </button>
+                </button></Link>
+                <Link href="/contact-us">
                 <button className="border border-white text-white px-5 py-2 rounded-lg hover:bg-white/10 transition">
                   Get a Discovery Call
-                </button>
+                </button></Link>
               </div>
             </div>
 
@@ -357,7 +444,7 @@ export default function Home() {
       {/* Section Name: Life Beyond Boundaries */}
 
       <LivesBeyondBoundaries />
-       <FounderSection />
+      <FounderSection />
       {/* Section Name: Why Choose Us */}
       <>  <WhyChooseUs /></>
 
@@ -365,7 +452,7 @@ export default function Home() {
       <PodcastPlayer />
       <TestimonialCarousel />
       <ContactForm />
-       <Footer />
+      <Footer />
     </div>
 
 
