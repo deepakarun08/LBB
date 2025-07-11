@@ -37,26 +37,15 @@ export default function TestimonialCarousel() {
       {/* Image Grid */}
       <div className="flex flex-wrap justify-center gap-4 px-4 max-w-7xl mx-auto hidden sm:flex">
         {[
-          '/images/p1.jpg',
-          '/images/p2.jpg',
-          '/images/p3.jpg',
-          '/images/p4.jpg',
-          '/images/p5.jpg',
-          '/images/p6.jpg',
-          '/images/p7.jpg',
-          '/images/p8.jpg',
-          '/images/p9.jpg',
-          '/images/p10.jpg',
-          '/images/p11.jpg',
-          '/images/p12.jpg',
+          '/images/testimonials-banner.png'
         ].map((img, idx) => (
           <div
             key={idx}
             className={`rounded-lg overflow-hidden ${
               idx >= 8 ? 'hidden lg:block' : ''
-            } w-40 h-40 sm:w-32 sm:h-40 object-cover`}
+            } sm:w-full object-cover`}
           >
-            <img src={img} alt={`Person ${idx + 1}`} className="w-full h-full object-cover" />
+            <img src={img} alt={`Person ${idx + 1}`} className="w-full h-full object-cover hidden md:block" />
           </div>
         ))}
       </div>
